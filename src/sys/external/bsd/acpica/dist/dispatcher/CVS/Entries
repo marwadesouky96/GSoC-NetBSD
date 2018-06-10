@@ -1,0 +1,15 @@
+/dsargs.c/1.1.1.2/Fri Dec 27 18:46:18 2013//Tnetbsd-7-1-2-RELEASE
+/dscontrol.c/1.3/Fri Dec 27 18:50:56 2013//Tnetbsd-7-1-2-RELEASE
+/dsfield.c/1.1.1.3/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+/dsinit.c/1.1.1.3/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+/dsmethod.c/1.1.1.3/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+/dsmthdat.c/1.1.1.3/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+/dsobject.c/1.1.1.3/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+/dsopcode.c/1.4/Fri Dec 27 18:50:56 2013//Tnetbsd-7-1-2-RELEASE
+/dsutils.c/1.1.1.3/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+/dswexec.c/1.1.1.3/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+/dswload.c/1.1.1.4/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+/dswload2.c/1.1.1.3/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+/dswscope.c/1.1.1.3/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+/dswstate.c/1.1.1.3/Fri Dec 27 18:46:19 2013//Tnetbsd-7-1-2-RELEASE
+D

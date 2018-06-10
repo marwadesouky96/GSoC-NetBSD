@@ -1,0 +1,12 @@
+/autoconf.c/1.27/Sun Jul 29 18:05:45 2012//Tnetbsd-7-1-2-RELEASE
+/com_eumb.c/1.8/Thu Dec 29 10:27:36 2011//Tnetbsd-7-1-2-RELEASE
+/eumb.c/1.6/Sun Dec 18 14:28:59 2011//Tnetbsd-7-1-2-RELEASE
+/eumbvar.h/1.6/Fri Jul  1 19:16:06 2011//Tnetbsd-7-1-2-RELEASE
+/flash_cfi.c/1.3.26.1/Wed Nov  4 21:05:01 2015//Tnetbsd-7-1-2-RELEASE
+/iic_eumb.c/1.19/Sat May 12 13:13:24 2012//Tnetbsd-7-1-2-RELEASE
+/locore.S/1.24/Fri Feb  7 08:51:34 2014//Tnetbsd-7-1-2-RELEASE
+/machdep.c/1.63.10.1/Wed Nov  4 21:05:01 2015//Tnetbsd-7-1-2-RELEASE
+/mainbus.c/1.29.22.1/Wed Nov  4 21:05:01 2015//Tnetbsd-7-1-2-RELEASE
+/nhpow.c/1.1/Sat Jan 14 19:39:25 2012//Tnetbsd-7-1-2-RELEASE
+/satmgr.c/1.26/Fri Jul 25 08:10:34 2014//Tnetbsd-7-1-2-RELEASE
+D

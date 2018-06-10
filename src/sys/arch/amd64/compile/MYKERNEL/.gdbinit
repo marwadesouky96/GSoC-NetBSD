@@ -1,0 +1,10 @@
+source ../../../../gdbscripts/bdump
+source ../../../../gdbscripts/cpus
+source ../../../../gdbscripts/kdump
+source ../../../../gdbscripts/lwps
+source ../../../../gdbscripts/module
+source ../../../../gdbscripts/msgbuf
+source ../../../../gdbscripts/pgrpdump
+source ../../../../gdbscripts/procs
+source ../../../../gdbscripts/vchain
+source ../../../../gdbscripts/vdump

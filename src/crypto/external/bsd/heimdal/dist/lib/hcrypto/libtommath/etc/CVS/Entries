@@ -1,0 +1,16 @@
+/2kprime.1/1.1.1.1/Wed Apr 13 18:15:06 2011//Tnetbsd-7-1-2-RELEASE
+/2kprime.c/1.1.1.2/Thu Apr 24 12:45:39 2014//Tnetbsd-7-1-2-RELEASE
+/drprime.c/1.1.1.2/Thu Apr 24 12:45:39 2014//Tnetbsd-7-1-2-RELEASE
+/drprimes.28/1.1.1.1/Wed Apr 13 18:15:06 2011//Tnetbsd-7-1-2-RELEASE
+/drprimes.txt/1.1.1.1/Wed Apr 13 18:15:06 2011//Tnetbsd-7-1-2-RELEASE
+/makefile/1.1.1.1/Wed Apr 13 18:15:06 2011//Tnetbsd-7-1-2-RELEASE
+/makefile.icc/1.1.1.1/Wed Apr 13 18:15:06 2011//Tnetbsd-7-1-2-RELEASE
+/makefile.msvc/1.1.1.1/Wed Apr 13 18:15:06 2011//Tnetbsd-7-1-2-RELEASE
+/mersenne.c/1.1.1.2/Thu Apr 24 12:45:39 2014//Tnetbsd-7-1-2-RELEASE
+/mont.c/1.1.1.2/Thu Apr 24 12:45:39 2014//Tnetbsd-7-1-2-RELEASE
+/pprime.c/1.1.1.2/Thu Apr 24 12:45:39 2014//Tnetbsd-7-1-2-RELEASE
+/prime.1024/1.1.1.1/Wed Apr 13 18:15:07 2011//Tnetbsd-7-1-2-RELEASE
+/prime.512/1.1.1.1/Wed Apr 13 18:15:07 2011//Tnetbsd-7-1-2-RELEASE
+/timer.asm/1.1.1.1.34.1/Sun Aug 20 05:44:19 2017//Tnetbsd-7-1-2-RELEASE
+/tune.c/1.1.1.2/Thu Apr 24 12:45:39 2014//Tnetbsd-7-1-2-RELEASE
+D

@@ -1,0 +1,10 @@
+/Makefile.am/1.1.1.3.12.1/Sun Aug 20 05:44:27 2017//Tnetbsd-7-1-2-RELEASE
+/NTMakefile/1.1.1.1/Wed Apr 13 18:16:02 2011//Tnetbsd-7-1-2-RELEASE
+/check-ldap.in/1.1.1.2.34.1/Sun Aug 20 05:44:27 2017//Tnetbsd-7-1-2-RELEASE
+/init.ldif/1.1.1.1/Wed Apr 13 18:16:02 2011//Tnetbsd-7-1-2-RELEASE
+/krb5.conf.in/1.1.1.2.34.1/Sun Aug 20 05:44:27 2017//Tnetbsd-7-1-2-RELEASE
+/samba.schema/1.1.1.1/Wed Apr 13 18:16:02 2011//Tnetbsd-7-1-2-RELEASE
+/slapd-init.in/1.1.1.2.34.1/Sun Aug 20 05:44:27 2017//Tnetbsd-7-1-2-RELEASE
+/slapd-stop/1.1.1.2/Thu Apr 14 14:09:52 2011//Tnetbsd-7-1-2-RELEASE
+/slapd.conf/1.1.1.1.34.1/Sun Aug 20 05:44:27 2017//Tnetbsd-7-1-2-RELEASE
+D

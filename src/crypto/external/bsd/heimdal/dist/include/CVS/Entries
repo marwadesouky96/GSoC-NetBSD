@@ -1,0 +1,10 @@
+/Makefile.am/1.1.1.3.12.1/Sun Aug 20 05:44:13 2017//Tnetbsd-7-1-2-RELEASE
+/NTMakefile/1.1.1.2.12.1/Sun Aug 20 05:44:13 2017//Tnetbsd-7-1-2-RELEASE
+/bits.c/1.1.1.3.12.1/Sun Aug 20 05:44:13 2017//Tnetbsd-7-1-2-RELEASE
+/config.h.w32/1.1.1.1.34.1/Sun Aug 20 05:44:13 2017//Tnetbsd-7-1-2-RELEASE
+/crypto-headers.h/1.1.1.1.34.1/Sun Aug 20 05:44:13 2017//Tnetbsd-7-1-2-RELEASE
+/heim_threads.h/1.1.1.3.12.1/Sun Aug 20 05:44:13 2017//Tnetbsd-7-1-2-RELEASE
+/krb5-types.cross/1.1.1.2.12.1/Sun Aug 20 05:44:13 2017//Tnetbsd-7-1-2-RELEASE
+D/gssapi////
+D/hcrypto////
+D/kadm5////

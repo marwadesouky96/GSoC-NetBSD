@@ -1,0 +1,21 @@
+/addressing.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/addressing_c3x.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/addressing_c4x.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/allopcodes.S/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/data.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/data.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/float.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/float.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/opclasses.h/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/opcodes.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/opcodes_c3x.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/opcodes_c4x.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/opcodes_new.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/rebuild.sh/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/registers.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/registers_c3x.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/registers_c4x.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/tic4x.exp/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/zeros.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/zeros.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+D

@@ -1,0 +1,207 @@
+# $NetBSD: CHANGES-7.1.2,v 1.1.2.22 2018/03/15 05:14:39 snj Exp $
+
+A complete list of changes from the NetBSD 7.1.1 release to the NetBSD 7.1.2
+release:
+
+doc/README.files				patched by hand
+gnu/usr.bin/groff/tmac/mdoc.local		patched by hand
+sys/sys/param.h					patched by hand
+
+	Welcome to 7.1.1_PATCH.
+	[snj]
+
+sys/external/bsd/ipf/netinet/ip_state.c		1.9-1.10
+
+	Stop a kernel panic when altering the ipf state table size at
+	runtime due to unallocated memory.
+	[sborrill, ticket #1525]
+
+sys/arch/amd64/include/i82093reg.h		1.9
+sys/arch/i386/include/i82093reg.h		1.11
+sys/arch/x86/x86/ioapic.c			1.54
+
+	Don't write a 1 to the read only RIRR bit in the IOAPIC
+	redirection register to fix "tlp0: filter setup and transmit
+	timeout" observed on Hyper-V VMs with the Legacy Network Adapter.
+
+	From OpenBSD via PR kern/49323:
+ 	https://marc.info/?l=openbsd-cvs&m=146718035432599&w=2
+	[nakayama, ticket #1527]
+
+sys/arch/sparc/sparc/locore.s			1.269
+
+	Avoid an instruction requiring a higher alignment than we
+	are guaranteed.  Fixes PR port-sparc/52721: ddb errors on
+	ps command.
+	[maya, ticket #1530]
+
+sys/arch/x86/x86/pmap.c				patch
+
+	amd64: Make the direct map non executable.
+	[maxv, ticket #1531]
+
+libexec/httpd/cgi-bozo.c			1.39
+
+	bozohttpd fails to exec scripts via the -C mechanism
+	sometimes with EFAULT due to not NULL terminated environment.
+	PR bin/52194
+	[martin, ticket #1533]
+
+sys/external/bsd/drm2/drm/drm_drv.c		1.20
+
+	drm_stat: fix device minor calculation.  Fixes bug where
+	libdrm couldn't find any devices beyond the first one.
+	[jmcneill, ticket #1536]
+
+etc/MAKEDEV.tmpl				1.188
+
+	make a few more drm nodes
+	[jmcneill, ticket #1537]
+
+sys/kern/subr_kobj.c				1.52
+
+	Compare names of duplicate symbols properly, so we correctly
+	return an error status.  PR kern/45125
+	[pgoyette, ticket #1539]
+
+sys/arch/amd64/amd64/machdep.c			1.280 via patch
+sys/arch/amd64/include/segments.h		1.34 via patch
+sys/arch/i386/i386/machdep.c			1.800 via patch
+sys/arch/i386/include/segments.h		1.64 via patch
+sys/arch/x86/x86/vm_machdep.c			1.30 via patch
+
+	Prevent unrestricted userland access to I/O ports in XEN.
+	[maxv, ticket #1550]
+
+bin/ksh/history.c				1.18 via patch
+
+	Create HISTFILE with mode 0600, not 777.  PR bin/52480.
+	[maya, ticket #1554]
+
+sys/netipsec/xform_ah.c				1.76
+
+	Fix a remote DoS vulnerability in IPsec-AH.
+	[maxv, ticket #1557]
+
+sys/netinet6/frag6.c				1.65
+sys/netinet6/ip6_input.c			1.187
+sys/netinet6/ip6_var.h				1.78
+sys/netinet6/raw_ip6.c				1.160 (via patch)
+
+	Fix a memory corruption in ip6_get_prevhdr().
+	[maxv, ticket #1560]
+
+sys/netinet6/ip6_mroute.c			1.120
+	Fix a use-after-free in the Pim6 entry point.
+	[maxv, ticket #1561]
+
+sys/netinet6/nd6_nbr.c				1.145 (via patch)
+
+	Fix memory leak.
+	[maxv, ticket #1562]
+
+sys/netinet/ip_input.c				1.366 (via patch)
+
+	Disable LSRR/SSRR by default.
+	[maxv, ticket #1563]
+
+sys/dist/pf/net/pf.c				1.78 via patch
+
+	Fix signedness bug in PF. PR/44059.
+	[maxv, ticket #1565]
+
+sys/netinet6/ip6_forward.c			1.89-1.90 via patch
+
+	Fix use-after-free of mbuf by ip6flow_create.
+	[ozaki-r, ticket #1551]
+
+sys/arch/sparc/sparc/timer.c			1.33-1.34
+sys/arch/sparc/sparc/timer_sun4m.c		1.31
+sys/arch/sparc/sparc/timerreg.h			1.10
+
+	Fix time goes backwards problems on sparc.
+	[mrg, ticket #1552]
+
+sys/netipsec/xform_ah.c				1.80-1.81 via patch
+
+	Fix use-after-free and and add more consistency checks.
+	[maxv, ticket #1568]
+
+sys/netipsec/xform_ipip.c			1.44
+
+	Fix IPv6-IPsec-AH tunnels.
+	[maxv, ticket #1567]
+
+sys/netipsec/xform_ah.c				1.77,1.81 via patch
+sys/netipsec/xform_esp.c			1.73 via patch
+sys/netipsec/xform_ipip.c			1.56,1.57 via patch
+
+	Several fixes in IPsec: strengthen sanity checks (AH/ESP), and fix
+	possible use-after-free (Tunnel).
+	[maxv, ticket #1569]
+
+sys/netipsec/ipsec.c				1.130
+
+	Fix inverted logic that could crash the kernel.
+	[maxv, ticket #1570]
+
+usr.sbin/ypserv/ypserv/ypserv_proc.c		1.18
+
+	PR/47615: Always zero out the result structs in the svc
+	procs to avoid returning stale request data to the client.
+	[christos, ticket #1566]
+
+sys/net/if_mpls.c				1.31-1.33 via patch
+sys/netmpls/mpls_ttl.c				1.9
+
+   	Fix several memory corruptions and inconsistencies in MPLS.
+	[maxv, ticket #1571]
+
+sys/arch/amiga/conf/DRACO			patch
+sys/arch/amiga/conf/GENERIC			patch
+sys/arch/amiga/conf/GENERIC.in			patch
+sys/arch/i386/conf/GENERIC			patch
+sys/arch/i386/conf/XEN3_DOM0			patch
+sys/arch/i386/conf/XEN3_DOMU			patch
+sys/arch/sparc/conf/GENERIC			patch
+sys/arch/sparc/conf/KRUPS			patch
+sys/arch/sparc/conf/MRCOFFEE			patch
+sys/arch/sparc/conf/TADPOLE3GX			patch
+sys/arch/sparc64/conf/GENERIC			patch
+sys/arch/sparc64/conf/NONPLUS64			patch
+sys/kern/kern_exec.c				patch
+
+	- disable compat_svr4 and compat_svr4_32 everywhere
+	- disable compat_ibcs2 everywhere but on Vax
+	- remove svr4/svr4_32/ibcs2/freebsd from the module autoload list
+	[maxv, ticket #1499]
+
+sys/netinet6/ip6_input.c			1.188 via patch
+
+	Kick nested IPv6 fragments.
+	[maxv, ticket #1572]
+
+sys/netipsec/ipsec_input.c			1.57-1.58
+
+	Fix out-of-bounds read.
+	[maxv, ticket #1577]
+
+sys/conf/copyright				1.16
+
+	Update for 2018 new year
+	[maya, ticket #1581]
+
+etc/namedb/bind.keys				1.2
+
+	Update the keys file to the latest version from
+	https://ftp.isc.org/isc/bind9/keys/9.11/bind.keys.v9_11
+	[maya, ticket #1583]
+
+distrib/notes/common/main			patched by hand
+doc/LAST_MINUTE					patched by hand
+gnu/usr.bin/groff/tmac/mdoc.local		patched by hand
+sys/sys/param.h					patched by hand
+
+	Welcome to 7.1.2.
+	[snj]
+

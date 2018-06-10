@@ -1,0 +1,17 @@
+/ChangeLog.gdb/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/Inputrc/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/Makefile.in/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/excallback.c/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/fileman.c/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/histexamp.c/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/manexamp.c/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/readlinebuf.h/1.1.1.4/Sun Jun 22 23:40:09 2014//Tnetbsd-7-1-2-RELEASE
+/rl-fgets.c/1.1.1.1/Sat Sep 24 19:56:56 2011//Tnetbsd-7-1-2-RELEASE
+/rl.c/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/rlcat.c/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/rlevent.c/1.1.1.1/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/rlptytest.c/1.1.1.1/Sat Sep 24 19:56:57 2011//Tnetbsd-7-1-2-RELEASE
+/rltest.c/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+/rlversion.c/1.1.1.2/Thu Oct  3 15:52:31 2013//Tnetbsd-7-1-2-RELEASE
+D/autoconf////
+D/rlfe////

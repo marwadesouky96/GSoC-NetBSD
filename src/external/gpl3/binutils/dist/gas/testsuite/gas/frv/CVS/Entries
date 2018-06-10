@@ -1,0 +1,22 @@
+/allinsn.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/allinsn.exp/1.1.1.2/Sun Sep 29 13:42:46 2013//Tnetbsd-7-1-2-RELEASE
+/allinsn.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fdpic.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fdpic.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr405-insn.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr405-insn.l/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr405-insn.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr450-insn.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr450-insn.l/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr450-insn.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr450-media-issue.l/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr450-media-issue.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr450-spr.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr450-spr.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr550-pack1.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/fr550-pack1.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/immediates.d/1.1.1.1/Sun Sep 29 13:42:46 2013//Tnetbsd-7-1-2-RELEASE
+/immediates.s/1.1.1.1/Sun Sep 29 13:42:46 2013//Tnetbsd-7-1-2-RELEASE
+/reloc1.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/reloc1.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+D

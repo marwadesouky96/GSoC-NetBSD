@@ -1,0 +1,16 @@
+/ChangeLog/1.1.1.1/Wed Apr 13 18:15:30 2011//Tnetbsd-7-1-2-RELEASE
+/Makefile.am/1.1.1.3.12.1/Sun Aug 20 05:44:21 2017//Tnetbsd-7-1-2-RELEASE
+/NTMakefile/1.1.1.1/Wed Apr 13 18:15:30 2011//Tnetbsd-7-1-2-RELEASE
+/afskrb5.c/1.1.1.2.12.1/Sun Aug 20 05:44:21 2017//Tnetbsd-7-1-2-RELEASE
+/afsl.exp/1.1.1.1/Wed Apr 13 18:15:30 2011//Tnetbsd-7-1-2-RELEASE
+/afslib.c/1.1.1.1/Wed Apr 13 18:15:30 2011//Tnetbsd-7-1-2-RELEASE
+/afslib.exp/1.1.1.1/Wed Apr 13 18:15:30 2011//Tnetbsd-7-1-2-RELEASE
+/afssys.c/1.1.1.2.12.1/Sun Aug 20 05:44:21 2017//Tnetbsd-7-1-2-RELEASE
+/afssysdefs.h/1.1.1.2/Thu Apr 14 14:09:18 2011//Tnetbsd-7-1-2-RELEASE
+/common.c/1.1.1.1.34.1/Sun Aug 20 05:44:21 2017//Tnetbsd-7-1-2-RELEASE
+/kafs.3/1.1.1.3/Thu Apr 24 12:45:49 2014//Tnetbsd-7-1-2-RELEASE
+/kafs.h/1.1.1.3.12.1/Sun Aug 20 05:44:21 2017//Tnetbsd-7-1-2-RELEASE
+/kafs_locl.h/1.1.1.2.34.1/Sun Aug 20 05:44:21 2017//Tnetbsd-7-1-2-RELEASE
+/roken_rename.h/1.1.1.2/Thu Apr 14 14:09:17 2011//Tnetbsd-7-1-2-RELEASE
+/rxkad_kdf.c/1.2.14.2/Sun Aug 20 05:44:21 2017//Tnetbsd-7-1-2-RELEASE
+D

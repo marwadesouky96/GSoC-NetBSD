@@ -1,0 +1,18 @@
+/all.exp/1.1.1.2/Sat Sep 24 22:24:40 2011//Tnetbsd-7-1-2-RELEASE
+/entry_align.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/entry_misalign.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/entry_misalign2.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/err-pcrel.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/j_too_far.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/jlong.d/1.1.1.1/Sat Sep 24 22:24:40 2011//Tnetbsd-7-1-2-RELEASE
+/jlong.s/1.1.1.1/Sat Sep 24 22:24:40 2011//Tnetbsd-7-1-2-RELEASE
+/loop_align.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/loop_misalign.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/pcrel.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/pcrel.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/short_branch_offset.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/short_branch_offset.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/weak-call.d/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/weak-call.s/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+/xtensa-err.exp/1.1.1.1/Tue Aug 18 10:16:42 2009//Tnetbsd-7-1-2-RELEASE
+D
