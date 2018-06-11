@@ -194,6 +194,48 @@ timeval2bintime(const struct timeval *tv, struct bintime *bt)
 	/* 18446744073709 = int(2^64 / 1000000) */
 	bt->frac = (uint64_t)tv->tv_usec * (uint64_t)18446744073709ULL;
 }
+
+
+/* GSoC */
+/* bintick to timespec */
+static __inline struct timespec
+hrttots(bintick_t _hrt)
+{
+        struct timespec _ts;
+
+        _ts.tv_sec = _hrt >> 32;
+        _ts.tv_nsec = ((uint64_t)1000000000 * (uint32_t)_hrt) >> 32;
+        return (_ts);
+}
+/* timespec to bintick */
+static __inline bintick_t
+tstohrt(struct timespec _ts)
+{
+
+        return (((bintick_t)_ts.tv_sec << 32) +
+            (_ts.tv_nsec * (((uint64_t)1 << 63) / 500000000) >> 32));
+}
+
+/* bintick to time val */
+static __inline struct timeval
+hrttotv(bintick_t _hrt)
+{
+        struct timeval _tv;
+
+        _tv.tv_sec = _hrt >> 32;
+        _tv.tv_usec = ((uint64_t)1000000 * (uint32_t)_hrt) >> 32;
+        return (_tv);
+}
+
+/* timeval to bintick */
+tatic __inline bintick_t
+tvtohrt(struct timeval _tv)
+{
+        return (((bintick_t)_tv.tv_sec << 32) +
+            (_tv.tv_usec * (((uint64_t)1 << 63) / 500000) >> 32));
+}
+
+
 #endif /* !defined(_STANDALONE) */
 
 /* Operations on timespecs. */
@@ -270,6 +312,42 @@ struct	itimerspec {
 
 #include <sys/cdefs.h>
 #include <time.h>
+
+
+/* GSoC */
+/* bintick */
+#define SBT_1S  ((bintick_t)1 << 32)
+#define SBT_1M  (SBT_1S * 60)
+#define SBT_1MS (SBT_1S / 1000)
+#define SBT_1US (SBT_1S / 1000000)
+#define SBT_1NS (SBT_1S / 1000000000)
+#define SBT_MAX 0x7fffffffffffffff
+
+tatic __inline int
+bintick_getsec(bintick_t _hrt)
+{
+
+        return (_hrt >> 32);
+}
+
+static __inline bintick_t
+bttohrt(const struct bintime _bt)
+{
+
+	return (((bintick_t)_bt.sec << 32) + (_bt.frac >> 32));
+}
+
+static __inline struct bintime
+hrttobt(bintick_t _hrt)
+{
+       struct bintime _bt;
+
+       _bt.sec = _hrt >> 32;
+       _bt.frac = _hrt << 32;
+       return (_bt);
+}
+
+
 
 __BEGIN_DECLS
 #ifndef __LIBC12_SOURCE__

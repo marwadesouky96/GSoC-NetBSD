@@ -229,6 +229,8 @@ sleepq_enqueue(sleepq_t *sq, wchan_t wchan, const char *wmesg, syncobj_t *sobj)
  *
  *	timo is a timeout in ticks.  timo = 0 specifies an infinite timeout.
  */
+
+
 int
 sleepq_block(int timo, bool catch)
 {
@@ -301,6 +303,82 @@ sleepq_block(int timo, bool catch)
 	}
 	return error;
 }
+
+/* GSoC */
+
+int
+sleepq_block_hrt(bintick_t hrt,bintick_t pr, bool catch)
+{
+	int error = 0, sig;
+	struct proc *p;
+	lwp_t *l = curlwp;
+	bool early = false;
+	int biglocks = l->l_biglocks;
+
+	ktrcsw(1, 0);
+
+	/*
+ 	 * If sleeping interruptably, check for pending signals, exits or
+ 	 * core dump events.
+ 	 */
+	if (catch) {
+		l->l_flag |= LW_SINTR;
+		if ((l->l_flag & (LW_CANCELLED|LW_WEXIT|LW_WCORE)) != 0) {
+			l->l_flag &= ~LW_CANCELLED;
+			error = EINTR;
+			early = true;
+		} else if ((l->l_flag & LW_PENDSIG) != 0 && sigispending(l, 0))
+			early = true;
+																			}
+
+	if (early) {
+	/* lwp_unsleep() will release the lock */
+		lwp_unsleep(l, true);
+	} else {
+		if (timo) {
+			callout_schedule_hrt(&l->l_timeout_ch, hrt, pr);
+		}
+		mi_switch(l);
+
+		/* The LWP and sleep queue are now unlocked. */
+		if (timo) {
+			/*
+			 * Even if the callout appears to have fired, we need to
+			 * stop it in order to synchronise with other CPUs.
+		 	*/
+			if (callout_halt(&l->l_timeout_ch, NULL))
+			error = EWOULDBLOCK;
+		}
+	}
+
+	if (catch && error == 0) {
+		p = l->l_proc;
+		if ((l->l_flag & (LW_CANCELLED | LW_WEXIT | LW_WCORE)) != 0)
+		error = EINTR;
+		else if ((l->l_flag & LW_PENDSIG) != 0) {
+			/*
+			 * Acquiring p_lock may cause us to recurse
+			 * through the sleep path and back into this
+			 * routine, but is safe because LWPs sleeping
+			 * on locks are non-interruptable.  We will
+			 * not recurse again.
+			 */
+			mutex_enter(p->p_lock);
+			if (((sig = sigispending(l, 0)) != 0 &&
+			    (sigprop[sig] & SA_STOP) == 0) ||
+			    (sig = issignal(l)) != 0)
+				error = sleepq_sigtoerror(l, sig);
+			mutex_exit(p->p_lock);
+		}
+	}
+
+	ktrcsw(0, 0);
+	if (__predict_false(biglocks != 0)) {
+		KERNEL_LOCK(biglocks, NULL);
+	}
+	return error;
+}
+
 
 /*
  * sleepq_wake:

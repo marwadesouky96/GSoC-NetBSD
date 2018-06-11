@@ -262,6 +262,27 @@ cv_timedwait(kcondvar_t *cv, kmutex_t *mtx, int timo)
 	return cv_exit(cv, mtx, l, error);
 }
 
+/* GSoC */
+
+/* 
+ * Wait on a condition variable for (at most) the value specified in hrt 
+ * argument. Returns 0 if the process was resumed by cv_signal or cv_broadcast,
+ * EWOULDBLOCK if the timeout expires.
+ *
+ */
+int
+cv_timedwait_hrt(kcondvar_t *cv, kmutex_t *mtx, bintick_t hrt, bintick_t pr)
+{
+	lwp_t *l = curlwp;
+	int error;
+
+	KASSERT(mutex_owned(mtx));
+
+	cv_enter(cv, mtx, l);
+	error = sleepq_block_hrt(hrt, pr, false);
+	return cv_exit(cv, mtx, l, error);
+}
+
 /*
  * cv_timedwait_sig:
  *
@@ -286,6 +307,27 @@ cv_timedwait_sig(kcondvar_t *cv, kmutex_t *mtx, int timo)
 	return cv_exit(cv, mtx, l, error);
 }
 
+/* GSoC */
+/*
+ * Wait on a condition variable for (at most) the value specified in hrt
+ * argument, allowing interruption by signals.
+ * Returns 0 if the thread was resumed by cv_signal or cv_broadcast,
+ * EWOULDBLOCK if the timeout expires, and EINTR or ERESTART if a signal 
+ * was caught.
+ *
+ */
+int 
+cv_timedwait_sig_hrt(kcondvar_t *cv, kmutex_t *mtx, bintick_t hrt, bintick_t pr)
+{
+	lwp_t *l = curlwp;
+	int error;
+
+	KASSERT(mutex_owned(mtx));
+
+	cv_enter(cv, mtx, l);
+	error = sleepq_block_hrt(hrt, pr, true);
+	return cv_exit(cv, mtx, l, error);
+}
 /*
  * cv_signal:
  *

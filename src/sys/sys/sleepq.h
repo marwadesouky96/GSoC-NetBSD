@@ -69,6 +69,7 @@ int	sleepq_abort(kmutex_t *, int);
 void	sleepq_changepri(lwp_t *, pri_t);
 void	sleepq_lendpri(lwp_t *, pri_t);
 int	sleepq_block(int, bool);
+int	sleepq_block(bintick_t, bintick_t, bool); 	/* GSoC */ 
 
 void	sleeptab_init(sleeptab_t *);
 

@@ -188,6 +188,10 @@ typedef uint64_t	rlim_t;		/* resource limit */
 typedef	int32_t		segsz_t;	/* segment size */
 typedef	int32_t		swblk_t;	/* swap offset */
 
+/* GSoC */
+typedef uint64_t       bintick_t;    
+
+
 #ifndef	uid_t
 typedef	__uid_t		uid_t;		/* user id */
 #define	uid_t		__uid_t

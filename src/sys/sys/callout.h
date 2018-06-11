@@ -87,6 +87,9 @@ typedef struct callout_impl {
 	void	*c_arg;				/* function argument */
 	struct callout_cpu * volatile c_cpu;	/* associated CPU */
 	int	c_time;				/* when callout fires */
+	/* GSoC */
+	bintick_t c_hrtime;
+	bintick_t c_pr;
 	u_int	c_flags;			/* state of this entry */
 	u_int	c_magic;			/* magic number */
 } callout_impl_t;
@@ -105,7 +108,9 @@ void	callout_init(callout_t *, u_int);
 void	callout_destroy(callout_t *);
 void	callout_setfunc(callout_t *, void (*)(void *), void *);
 void	callout_reset(callout_t *, int, void (*)(void *), void *);
+void	callout_reset_hrt(callout_t *, bintick_t, bintick_t, void (*)(void *), void *); /* GSoC */
 void	callout_schedule(callout_t *, int);
+void	callout_schedule_hrt(callout_t *, bintick_t, bintick_t);			  /* GSoC */
 bool	callout_stop(callout_t *);
 bool	callout_halt(callout_t *, void *);
 bool	callout_pending(callout_t *);

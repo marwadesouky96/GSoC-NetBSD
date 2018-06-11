@@ -132,9 +132,34 @@ void	binuptime(struct bintime *);
 void	nanouptime(struct timespec *);
 void	microuptime(struct timeval *);
 
+/* GSoC */
+/**/
+static __inline bintick_t
+sbinuptime(void)
+{
+        struct bintime _bt;
+
+        binuptime(&_bt);
+        return (bttohrt(_bt));
+}
+
+
 void	bintime(struct bintime *);
 void	nanotime(struct timespec *);
 void	microtime(struct timeval *);
+
+
+/* GSoC */
+
+static __inline bintick_t
+getsbinuptime(void)
+{
+ 	struct bintime _bt;
+
+        getbinuptime(&_bt);
+        return (bttohrt(_bt));
+}
+
 
 void	getbinuptime(struct bintime *);
 void	getnanouptime(struct timespec *);

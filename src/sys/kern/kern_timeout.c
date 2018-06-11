@@ -171,6 +171,9 @@ struct callout_cpu {
 	kmutex_t	*cc_lock;
 	sleepq_t	cc_sleepq;
 	u_int		cc_nwait;
+	/* GSoC */	
+	bintick_t	cc_hrt;
+	bintick_t	cc_pr;
 	u_int		cc_ticks;
 	lwp_t		*cc_lwp;
 	callout_impl_t	*cc_active;
@@ -372,6 +375,59 @@ callout_schedule_locked(callout_impl_t *c, kmutex_t *lock, int to_ticks)
 	mutex_spin_exit(lock);
 }
 
+/* GSoC */
+static void
+callout_schedule_locked_hrt(callout_impl_t *c, kmutex_t *lock, bintick_t to_hrt, bintick_t pr)
+{
+	struct callout_cpu *cc, *occ;
+	//int old_time;
+	/* GSoC */
+	bintick_t old_time;
+	KASSERT(to_ticks >= 0);
+	KASSERT(c->c_func != NULL);
+
+	/* Initialize the time here, it won't change. */
+	occ = c->c_cpu;
+	c->c_flags &= ~(CALLOUT_FIRED | CALLOUT_INVOKING);
+
+	/*
+	 * If this timeout is already scheduled and now is moved
+	 * earlier, reschedule it now.  Otherwise leave it in place
+	 * and let it be rescheduled later.
+	 */
+	if ((c->c_flags & CALLOUT_PENDING) != 0) {
+	/* Leave on existing CPU. */
+	old_time  = c->c_hrtime;
+	c->c_hrtime = to_hrt + occ->cc_hrt;
+	c->c_pr   = occ->cc_pr; 		
+	if (c->c_time - old_time < 0) {
+	CIRCQ_REMOVE(&c->c_list);
+	CIRCQ_INSERT(&c->c_list, &occ->cc_todo);
+	}
+	mutex_spin_exit(lock);
+	return;
+	}
+
+	cc = curcpu()->ci_data.cpu_callout;
+	if ((c->c_flags & CALLOUT_BOUND) != 0 || cc == occ ||
+		!mutex_tryenter(cc->cc_lock)) {
+	/* Leave on existing CPU. */
+	c->c_hrtime   = to_hrt + occ->cc_hrt;
+	c->c_pr     = occ->c_pr;
+	c->c_flags |= CALLOUT_PENDING;
+	CIRCQ_INSERT(&c->c_list, &occ->cc_todo);
+	} else {
+	/* Move to this CPU. */
+	c->c_cpu    = cc;
+	c->c_hrtime   = to_hrt + cc->cc_hrt;
+	c-c_pr      = cc->cc_pr;
+	c->c_flags |= CALLOUT_PENDING;
+	CIRCQ_INSERT(&c->c_list, &occ->cc_todo);
+	mutex_spin_exit(cc->cc_lock);
+	}
+	mutex_spin_exit(lock);
+}
+
 /*
  * callout_reset:
  *
@@ -393,6 +449,22 @@ callout_reset(callout_t *cs, int to_ticks, void (*func)(void *), void *arg)
 	callout_schedule_locked(c, lock, to_ticks);
 }
 
+/* GSoC */
+void
+callout_reset_hrt(callout_t *cs, bintick_t to_hrt, bintick_t pr, void (*func)(void *), void *arg)
+{
+	callout_impl_t *c = (callout_impl_t *)cs;
+	kmutex_t *lock;
+
+	KASSERT(c->c_magic == CALLOUT_MAGIC);
+	KASSERT(func != NULL);
+
+	lock = callout_lock(c);
+	c->c_func = func;
+	c->c_arg = arg;
+	callout_schedule_locked_hrt(c, lock, to_hrt, pr);
+}
+
 /*
  * callout_schedule:
  *
@@ -402,13 +474,26 @@ callout_reset(callout_t *cs, int to_ticks, void (*func)(void *), void *arg)
 void
 callout_schedule(callout_t *cs, int to_ticks)
 {
-	callout_impl_t *c = (callout_impl_t *)cs;
+callout_impl_t *c = (callout_impl_t *)cs;
 	kmutex_t *lock;
 
 	KASSERT(c->c_magic == CALLOUT_MAGIC);
 
 	lock = callout_lock(c);
 	callout_schedule_locked(c, lock, to_ticks);
+}
+
+/* GSoC */
+void
+callout_schedule_hrt(callout_t *cs, bintick_t to_hrt, bintick_t pr)
+{
+	callout_impl_t *c = (callout_impl_t *)cs;
+	kmutex_t *lock;
+
+	KASSERT(c->c_magic == CALLOUT_MAGIC);
+
+	lock = callout_lock(c);
+	callout_schedule_locked_hrt(c, lock, to_hrt, pr);
 }
 
 /*
