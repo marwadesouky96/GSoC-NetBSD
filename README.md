@@ -15,7 +15,7 @@ Project: Tickless Kernel
 	
 	sys/time.h
 	
-	sys/timevar.h
+
 
 2- modify callout data structure to use high resolution timer
 	
