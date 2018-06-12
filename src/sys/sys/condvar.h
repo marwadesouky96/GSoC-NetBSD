@@ -48,8 +48,8 @@ int	cv_wait_sig(kcondvar_t *, kmutex_t *);
 int	cv_timedwait(kcondvar_t *, kmutex_t *, int);
 int	cv_timedwait_sig(kcondvar_t *, kmutex_t *, int);
 /* GSoC */
-int	cv_timedwait_hrt(kcondvar_t *, kmutex_t *, sintime_t, bintick_t);
-int	cv_timedwait_sig_hrt(kcondvar_t *, kmutex_t *, sintime_t, bintick_t);
+int	cv_timedwait_hrt(kcondvar_t *, kmutex_t *, bintick_t, bintick_t);
+int	cv_timedwait_sig_hrt(kcondvar_t *, kmutex_t *, bintick_t, bintick_t);
 void	cv_signal(kcondvar_t *);
 void	cv_broadcast(kcondvar_t *);
 

@@ -228,13 +228,36 @@ hrttotv(bintick_t _hrt)
 }
 
 /* timeval to bintick */
-tatic __inline bintick_t
+static __inline bintick_t
 tvtohrt(struct timeval _tv)
 {
         return (((bintick_t)_tv.tv_sec << 32) +
             (_tv.tv_usec * (((uint64_t)1 << 63) / 500000) >> 32));
 }
 
+static __inline int
+bintick_getsec(bintick_t _hrt)
+{
+
+        return (_hrt >> 32);
+}
+
+static __inline bintick_t
+bttohrt(const struct bintime _bt)
+{
+
+        return (((bintick_t)_bt.sec << 32) + (_bt.frac >> 32));
+}
+
+static __inline struct bintime
+hrttobt(bintick_t _hrt)
+{
+       struct bintime _bt;
+
+       _bt.sec = _hrt >> 32;
+       _bt.frac = _hrt << 32;
+       return (_bt);
+}
 
 #endif /* !defined(_STANDALONE) */
 
@@ -302,6 +325,27 @@ struct	itimerspec {
 
 #ifdef _KERNEL
 #include <sys/timevar.h>
+/* GSoC */
+
+static __inline bintick_t
+getrtuptime(void)
+{
+        struct bintime _bt;
+
+        getbinuptime(&_bt);
+        return (bttohrt(_bt));
+}
+
+
+static __inline bintick_t
+hruptime(void)
+{
+        struct bintime _bt;
+
+        binuptime(&_bt);
+        return (bttohrt(_bt));
+}
+
 #else /* !_KERNEL */
 #ifndef _STANDALONE
 #if (_POSIX_C_SOURCE - 0) >= 200112L || \
@@ -322,7 +366,7 @@ struct	itimerspec {
 #define SBT_1US (SBT_1S / 1000000)
 #define SBT_1NS (SBT_1S / 1000000000)
 #define SBT_MAX 0x7fffffffffffffff
-
+/*
 tatic __inline int
 bintick_getsec(bintick_t _hrt)
 {
@@ -346,7 +390,7 @@ hrttobt(bintick_t _hrt)
        _bt.frac = _hrt << 32;
        return (_bt);
 }
-
+*/
 
 
 __BEGIN_DECLS

@@ -399,8 +399,8 @@ callout_schedule_locked_hrt(callout_impl_t *c, kmutex_t *lock, bintick_t to_hrt,
 	/* Leave on existing CPU. */
 	old_time  = c->c_hrtime;
 	c->c_hrtime = to_hrt + occ->cc_hrt;
-	c->c_pr   = occ->cc_pr; 		
-	if (c->c_time - old_time < 0) {
+	//c->c_pr   = pr; 		
+	if (c->c_hrtime - old_time < 0) {
 	CIRCQ_REMOVE(&c->c_list);
 	CIRCQ_INSERT(&c->c_list, &occ->cc_todo);
 	}
@@ -413,14 +413,14 @@ callout_schedule_locked_hrt(callout_impl_t *c, kmutex_t *lock, bintick_t to_hrt,
 		!mutex_tryenter(cc->cc_lock)) {
 	/* Leave on existing CPU. */
 	c->c_hrtime   = to_hrt + occ->cc_hrt;
-	c->c_pr     = occ->c_pr;
+	//c->c_pr     = pr;
 	c->c_flags |= CALLOUT_PENDING;
 	CIRCQ_INSERT(&c->c_list, &occ->cc_todo);
 	} else {
 	/* Move to this CPU. */
 	c->c_cpu    = cc;
 	c->c_hrtime   = to_hrt + cc->cc_hrt;
-	c-c_pr      = cc->cc_pr;
+	//c->c_pr      = pr;
 	c->c_flags |= CALLOUT_PENDING;
 	CIRCQ_INSERT(&c->c_list, &occ->cc_todo);
 	mutex_spin_exit(cc->cc_lock);

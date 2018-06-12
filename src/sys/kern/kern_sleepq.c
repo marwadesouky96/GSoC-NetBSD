@@ -335,13 +335,13 @@ sleepq_block_hrt(bintick_t hrt,bintick_t pr, bool catch)
 	/* lwp_unsleep() will release the lock */
 		lwp_unsleep(l, true);
 	} else {
-		if (timo) {
+		if (hrt) {
 			callout_schedule_hrt(&l->l_timeout_ch, hrt, pr);
 		}
 		mi_switch(l);
 
 		/* The LWP and sleep queue are now unlocked. */
-		if (timo) {
+		if (hrt) {
 			/*
 			 * Even if the callout appears to have fired, we need to
 			 * stop it in order to synchronise with other CPUs.
